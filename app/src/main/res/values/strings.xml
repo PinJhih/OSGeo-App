@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">OSGeo</string>
+
+    <string-array name="project_names">
+        <item>GDAL/OGR</item>
+        <item>GeoNetwork</item>
+        <item>GeoNode</item>
+        <item>GRASS GIS</item>
+        <item>GeoServer</item>
+    </string-array>
+
+    <string-array name="project_tagline">
+        <item>GDAL is a C++ translator library for more than 200 raster and vector geospatial data formats.</item>
+        <item>GeoNetwork is a catalog application to manage spatially referenced resources. It provides powerful metadata editing and search functions as well as an interactive web map viewer.\nIt is currently used in numerous Spatial Data Infrastructure initiatives across the world.</item>
+        <item>GeoNode is a web-based application and platform for developing geospatial information systems (GIS) and for deploying spatial data infrastructures (SDI).\nIt is designed to be extended and modified, and can be integrated into existing platforms.</item>
+        <item>GRASS GIS, commonly referred to as GRASS (Geographic Resources Analysis Support System), is a free and open source Geographic Information System (GIS) software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization.</item>
+        <item>Designed for interoperability, GeoServer publishes data from any major spatial data source using open standards.</item>
+    </string-array>
+
+    <integer-array name="project_logo_id">
+        <item>@drawable/logo_gdal</item>
+        <item>@drawable/logo_network</item>
+        <item>@drawable/logo_geonode</item>
+        <item>@drawable/logo_grassgis</item>
+        <item>@drawable/logo_geoserver</item>
+    </integer-array>
+
 </resources>
