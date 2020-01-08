@@ -1,7 +1,9 @@
 package com.example.osgeo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,17 +25,18 @@ class MainActivity : AppCompatActivity() {
 
         setRecyclerView()
     }
-    private fun setRecyclerView(){
+
+    private fun setRecyclerView() {
 
         val names = resources.obtainTypedArray(R.array.project_names)
         val tagline = resources.obtainTypedArray(R.array.project_tagline)
         val logos = resources.obtainTypedArray(R.array.project_logo_id)
 
-        for(i in 0 until 5){
+        for (i in 0 until 5) {
             val projectInfo = ProjectInfo()
             projectInfo.name = names.getString(i)!!
             projectInfo.tagline = tagline.getString(i)!!
-            projectInfo.logo_id = logos.getResourceId(i,0)
+            projectInfo.logo_id = logos.getResourceId(i, 0)
             info.add(projectInfo)
 
             adapter.notifyDataSetChanged()
@@ -42,6 +45,18 @@ class MainActivity : AppCompatActivity() {
         names.recycle()
         tagline.recycle()
         logos.recycle()
+    }
+
+    fun login() {
+        val intent = Intent(this, LoginActivity::class.java)
+        val item = arrayOf("Github", "OSGeo Trac")
+        AlertDialog.Builder(this)
+            .setTitle("Login by...")
+            .setItems(item) { _, i ->
+                intent.putExtra("login_by", item[i])
+                startActivity(intent)
+            }
+            .show()
     }
 }
 

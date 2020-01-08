@@ -1,6 +1,7 @@
 package com.example.osgeo
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +35,7 @@ class RecyclerAdapter(private val context: Context, private val projectInfo: Arr
         holder.logo.setImageResource(projectInfo[position].logo_id)
 
         holder.item.setOnClickListener {
-            Toast.makeText(context as MainActivity,projectInfo[position].name,Toast.LENGTH_SHORT).show()
+            (context as MainActivity).login()
         }
     }
 }
