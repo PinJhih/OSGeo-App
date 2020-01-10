@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/github_logo" />
 
     <EditText
-        android:id="@+id/ed_user_name"
+        android:id="@+id/ed_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -44,10 +44,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_user_name" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

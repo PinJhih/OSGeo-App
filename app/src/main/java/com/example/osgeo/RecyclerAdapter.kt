@@ -11,7 +11,10 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter(private val context: Context, private val projectInfo: ArrayList<ProjectInfo>) :
+class RecyclerAdapter(
+    private val context: Context,
+    private val projectInfo: ArrayList<ProjectInfo>
+) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -35,7 +38,7 @@ class RecyclerAdapter(private val context: Context, private val projectInfo: Arr
         holder.logo.setImageResource(projectInfo[position].logo_id)
 
         holder.item.setOnClickListener {
-            (context as MainActivity).login()
+            (context as MainActivity).login(projectInfo[position].url)
         }
     }
 }

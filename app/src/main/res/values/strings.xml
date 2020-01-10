@@ -25,4 +25,12 @@
         <item>@drawable/logo_geoserver</item>
     </integer-array>
 
+    <string-array name="project_url">
+        <item>https://www.osgeo.org/projects/gdal/</item>
+        <item>https://www.osgeo.org/projects/geonetwork/</item>
+        <item>https://www.osgeo.org/projects/geonode/</item>
+        <item>https://www.osgeo.org/projects/grass-gis/ </item>
+        <item>https://www.osgeo.org/projects/geoserver/</item>
+    </string-array>
+
 </resources>
