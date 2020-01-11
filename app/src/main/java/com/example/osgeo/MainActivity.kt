@@ -81,6 +81,9 @@ class MainActivity : AppCompatActivity() {
     fun login(url: String) {
         val intent = Intent(this, LoginActivity::class.java)
         val item = arrayOf("Github", "OSGeo Trac")
+        val title = if (settings.getString("language", "English") == "English")
+            "Login by..." else resources.getString(R.string.login_chinese_tw)
+
         if (isLogin)
             AlertDialog.Builder(this)
                 .setTitle("View on the web?")
@@ -92,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         else
             AlertDialog.Builder(this)
-                .setTitle("Login by...")
+                .setTitle(title)
                 .setItems(item) { _, i ->
                     intent.putExtra("login_by", item[i])
                     startActivityForResult(intent, 1)
