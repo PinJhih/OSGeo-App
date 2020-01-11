@@ -4,6 +4,8 @@
     <string name="dark_mode_chinese_tw">深色模式</string>
     <string name="language_english">Language</string>
     <string name="language_chinese_tw">語言</string>
+    <string name="login_chinese_tw">登入</string>
+    <string name="password_chinese_tw">密碼</string>
 
     <string-array name="project_names">
         <item>GDAL/OGR</item>

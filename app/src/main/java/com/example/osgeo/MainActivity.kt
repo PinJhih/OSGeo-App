@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.textclassifier.TextLanguage
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,13 +41,11 @@ class MainActivity : AppCompatActivity() {
         isLogin = profile.getBoolean("is_logged_in", false)
         darkMode = settings.getBoolean("dark_mode", false)
 
-
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         recyclerView.layoutManager = linearLayoutManager
         adapter = RecyclerAdapter(this, darkMode, info)
         recyclerView.adapter = adapter
-
         setRecyclerView()
 
         btn_seting.setOnClickListener {
@@ -56,7 +55,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setRecyclerView() {
-
         val names = resources.obtainTypedArray(R.array.project_names)
         val tagline = resources.obtainTypedArray(R.array.project_tagline)
         val logos = resources.obtainTypedArray(R.array.project_logo_id)

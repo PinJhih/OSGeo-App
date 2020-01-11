@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_setting.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,6 +22,10 @@ class LoginActivity : AppCompatActivity() {
             ed_password.setHintTextColor(Color.parseColor("#ffffff"))
         }
 
+        if(settings.getString("language","English") == "繁體中文(臺灣)"){
+            btn_login.text = resources.getString(R.string.login_chinese_tw)
+            ed_password.hint = resources.getString(R.string.password_chinese_tw)
+        }
 
         intent?.extras?.let {
             if (it.getString("login_by") == "Github")

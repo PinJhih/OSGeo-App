@@ -24,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:background="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/tv_language"
         app:layout_constraintStart_toEndOf="@+id/tv_language"
         app:layout_constraintTop_toTopOf="@+id/tv_language" />
