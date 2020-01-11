@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">OSGeo</string>
+    <string name="dark_mode_english">Dark mode</string>
+    <string name="dark_mode_chinese_tw">深色模式</string>
+    <string name="language_english">Language</string>
+    <string name="language_chinese_tw">語言</string>
 
     <string-array name="project_names">
         <item>GDAL/OGR</item>

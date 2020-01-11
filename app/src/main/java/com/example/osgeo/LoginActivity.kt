@@ -1,6 +1,7 @@
 package com.example.osgeo
 
 import android.app.Activity
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -11,6 +12,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val settings = getSharedPreferences("settings", Activity.MODE_PRIVATE)
+
+        if(settings.getBoolean("dark_mode",false)) {
+            layout_login.setBackgroundColor(Color.parseColor("#000000"))
+            ed_email.setHintTextColor(Color.parseColor("#ffffff"))
+            ed_password.setHintTextColor(Color.parseColor("#ffffff"))
+        }
+
 
         intent?.extras?.let {
             if (it.getString("login_by") == "Github")

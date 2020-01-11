@@ -13,31 +13,46 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: RecyclerAdapter
-    private lateinit var profile:SharedPreferences
+    private lateinit var settings: SharedPreferences
+    private lateinit var profile: SharedPreferences
     private var info = ArrayList<ProjectInfo>()
-    private var isLoggedin = false
+    private var isLogin = false
+    private var darkMode = false
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         profile = getSharedPreferences("profile", Activity.MODE_PRIVATE)
-        isLoggedin = profile.getBoolean("is_logged_in", true)
+        isLogin = profile.getBoolean("is_logged_in", false)
+        darkMode = settings.getBoolean("dark_mode", false)
+
+        adapter = RecyclerAdapter(this, darkMode, info)
+        recyclerView.adapter = adapter
+        setRecyclerView()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        settings = getSharedPreferences("settings", Activity.MODE_PRIVATE)
         profile = getSharedPreferences("profile", Activity.MODE_PRIVATE)
-        isLoggedin = profile.getBoolean("is_logged_in", false)
+        isLogin = profile.getBoolean("is_logged_in", false)
+        darkMode = settings.getBoolean("dark_mode", false)
+
 
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         recyclerView.layoutManager = linearLayoutManager
-        adapter = RecyclerAdapter(this, info)
+        adapter = RecyclerAdapter(this, darkMode, info)
         recyclerView.adapter = adapter
 
         setRecyclerView()
+
+        btn_seting.setOnClickListener {
+            val i = Intent(this, SettingActivity::class.java)
+            startActivityForResult(i, 1)
+        }
     }
 
     private fun setRecyclerView() {
@@ -46,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         val tagline = resources.obtainTypedArray(R.array.project_tagline)
         val logos = resources.obtainTypedArray(R.array.project_logo_id)
         val url = resources.obtainTypedArray(R.array.project_url)
+        info.clear()
 
         for (i in 0 until 5) {
             val projectInfo = ProjectInfo()
@@ -67,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     fun login(url: String) {
         val intent = Intent(this, LoginActivity::class.java)
         val item = arrayOf("Github", "OSGeo Trac")
-        if (isLoggedin)
+        if (isLogin)
             AlertDialog.Builder(this)
                 .setTitle("View on the web?")
                 .setPositiveButton("Yse") { _, _ ->
@@ -81,12 +97,11 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("Login by...")
                 .setItems(item) { _, i ->
                     intent.putExtra("login_by", item[i])
-                    startActivityForResult(intent,1)
+                    startActivityForResult(intent, 1)
                 }
                 .show()
     }
 }
-
 
 data class ProjectInfo(
     var name: String = "",
