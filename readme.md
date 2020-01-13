@@ -15,7 +15,11 @@ The following are what I did in the tasks and the app:
 - To show websites by WebView.
 - Designed setting page with Dark Mode and Language Switch.
 
-![](https://i.imgur.com/suXNHfA.png)
+![](https://i.imgur.com/aVN2woJ.png)
+![](https://i.imgur.com/ywg9iIJ.png)
+![](https://i.imgur.com/p1IVR0l.png)
+![](https://i.imgur.com/xwVTtcF.png)
+
 
 ## What I learned
 
